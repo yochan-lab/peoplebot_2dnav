@@ -1,0 +1,18 @@
+#global_frame same as global frame
+#robot_base_frame bottom of the robot
+#publish_frequency hertz to publish visualization
+#static_map why is this false, don't know
+#rolling_window costmap moves with the robot
+#width/height dimensions of local map in m
+#resolution of map in m/pixel	
+local_costmap:
+     global_frame: /map
+     robot_base_frame: base_link
+     update_frequency: 5.0  # 2.0 previously   
+     publish_frequency: 2.0  # 2.0 previously
+     static_map: false  # true
+     rolling_window: true
+     width: 6.0
+     height: 6.0
+     resolution: 0.05
+     min_obstacle_height: 0.0
