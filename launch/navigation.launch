@@ -1,12 +1,7 @@
  <launch>
         <!-- <node name="tf_broadcaster" pkg="robot_setup_tf" type="tf_broadcaster" /> -->
-	
-	<include file="$(find freenect_launch)/launch/freenect.launch" />
 
-	<node name="kinect_aux_1" pkg="kinect_aux" type="kinect_aux_node">
-		<param name="device_index" value="0" />
-	</node>
-
+	<!--<node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan" launch-prefix="/home/yochan/.ros/tmuxrun">-->
 	<node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
                 <remap to="camera/depth/image_raw" from="image" />
                 <remap to="camera/depth/camera_info" from="camera_info" /> 
@@ -16,7 +11,7 @@
 
 	<!-- Run the map server -->
 	<!-- add my_map_package and resolution -->
-	<node name="map_server" pkg="map_server" type="map_server" args="$(find peoplebot_2dnav)/maps/map.yaml" />
+	<node name="map_server" pkg="map_server" type="map_server" args="$(find peoplebot_2dnav)/maps/fifth_floor.yaml" />
 
 	<!-- Run AMCL -->
 	<include file="$(find peoplebot_2dnav)/launch/amcl_diff.launch" />
@@ -26,7 +21,8 @@
 		<param name="controller_frequency" value="20.0" />
 		<param name="planner_frequency" value="0.0" />
 		<param name="planner_patience" value="7.0" /> <!-- default 5.0 -->
-		<param name="controller_patience" value="15.0" />
+		<param name="controller_patience" value="10.0" />
+		<param name="base_global_planner" value="global_planner/GlobalPlanner" />
 
 		<param name="recovery_behavior_enabled" value="true" />		
 		<!-- <param name="recovery_behaviors" 

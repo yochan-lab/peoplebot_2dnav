@@ -8,3 +8,8 @@ global_costmap:
      update_frequency: 10.0   #5.0
      static_map: true
      allow_unknown: false
+
+GlobalPlanner:
+     use_dijkstra: true #previously true 
+     allow_unknown: false
+     use_grid_path: false

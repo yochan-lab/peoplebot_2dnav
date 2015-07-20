@@ -1,24 +1,25 @@
 #more params will be needed here. Testing will determine which ones.
 
 TrajectoryPlannerROS:
-     max_vel_x: 0.7
+     #Robot Configuration Parameters
+     max_vel_x: 0.6 #up from .5 #down from .7
      min_vel_x: 0.2
-     max_vel_theta: 0.4
-     min_vel_theta: -0.4
-     escape_vel: -0.2
-     max_rotational_vel: 0.4
-     min_rotational_vel: -0.4
-     max_in_place_rotational_vel: 0.5
-     min_in_place_rotational_vel: -0.5
+     max_vel_theta: 0.7 #up from 0.5
+     min_vel_theta: -0.7 #up from -0.5
+     escape_vel: -0.1 #previously -0.2
+     min_in_place_vel_theta: 0.7
      
-     acc_lim_theta: 0.5
-     acc_lim_x: 0.2
-     acc_lim_y: 0.2
-
-     yaw_goal_tolerance: 0.10
-     xy_goal_tolerance: 0.25
+     acc_lim_theta: 1.5 #1.0 previously
+     acc_lim_x: 0.1
+     acc_lim_y: 0.1
 
      holonomic_robot: false
 
-     path_distance_bias: 3000.0
-     sim_time: 3.0
+     #Goal Tolerance Parameters
+     yaw_goal_tolerance: 1.0
+     xy_goal_tolerance: 0.5
+
+     #Forward Simulation Parameters
+     path_distance_bias: 3000.0 # not really sure what this does, or where it is from.
+     sim_time: 3.0 #previously 3
+     vx_samples: 5 #previously 3
